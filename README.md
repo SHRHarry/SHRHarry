@@ -1,6 +1,6 @@
 # Hi, I'm Harry Shen
 
-## About Me
+## :shipit: About Me
 
 :office: I am currently working as an AI software engineer at [ASUS IoT](https://iot.asus.com/).  
 :mortar_board: M.S degree from [NCU](https://www.ncu.edu.tw/tw/index.html) [ICIP Lab](http://iciplab.diskstation.me/joomla/index.php/tw/news), Taiwan.  
