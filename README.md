@@ -10,4 +10,4 @@
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![GitLab](https://img.shields.io/badge/gitlab-gray?style=for-the-badge&logo=gitlab&logoColor=orange) ![Jenkins](https://img.shields.io/badge/Jenkins-gray?style=for-the-badge&logo=Jenkins) ![Grafana](https://img.shields.io/badge/Grafana-gray?style=for-the-badge&logo=grafana&logoColor=orange)
 
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=SHRHarry&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=SHRHarry&theme=dark&hide_border=false&count_private=true&layout=compact)
