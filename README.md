@@ -24,5 +24,9 @@
 ### Cloud
 ![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
 
-## :bar_chart: GitHub Stats
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=SHRHarry&theme=dark&hide_border=false&count_private=true&layout=compact)
+## :bar_chart: GitHub Dashboard
+![Profile Metrics](https://raw.githubusercontent.com/SHRHarry/SHRHarry/main/.github/metrics/general.svg)
+![Languages Metrics](https://raw.githubusercontent.com/SHRHarry/SHRHarry/main/.github/metrics/languages.svg)
+
+## :snake: Contribution Snake
+![Contribution Snake](https://raw.githubusercontent.com/SHRHarry/SHRHarry/output/github-contribution-grid-snake-dark.svg)
