@@ -2,13 +2,27 @@
 
 ## :shipit: About Me
 
-:office: I am currently working as an AI software engineer at [ASUS IoT](https://iot.asus.com/).  
-:mortar_board: M.S degree from [NCU](https://www.ncu.edu.tw/tw/index.html) [ICIP Lab](http://iciplab.diskstation.me/joomla/index.php/tw/news), Taiwan.  
-:scroll: Here is my [resume](https://www.cakeresume.com/s--kfaC-S7Xcuew6iN9Iq9L2Q--/ms024929548), please take a look.
+:office: Currently working as a software engineer, supporting Microsoft Translation services.  
+:mortar_board: M.S. in Computer Science from [National Central University (NCU)](https://www.ncu.edu.tw/tw/index.html), Taiwan.  
 
-## :computer: Languages/Skills
-![C++](https://img.shields.io/badge/C++-0693e3?style=for-the-badge&logo=cplusplus&logoColor=white) ![C#](https://img.shields.io/badge/CSharp-5b38d7?style=for-the-badge&logo=csharp&logoColor=white) ![Python](https://img.shields.io/badge/Python-blue?style=for-the-badge&logo=python&logoColor=yellow) ![TF](https://img.shields.io/badge/Tensorflow-e6e6e6?style=for-the-badge&logo=tensorflow&logoColor=yellow) ![Pytorch](https://img.shields.io/badge/Pytorch-gray?style=for-the-badge&logo=pytorch&logoColor=orange) ![django](https://img.shields.io/badge/Django-0C4B33?style=for-the-badge&logo=django&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-e6e6e6?style=for-the-badge&logo=flask&logoColor=black)
+## :computer: Skills
+### Frontend
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
-![HTML](https://img.shields.io/badge/html-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/css-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![GitLab](https://img.shields.io/badge/gitlab-gray?style=for-the-badge&logo=gitlab&logoColor=orange) ![Jenkins](https://img.shields.io/badge/Jenkins-gray?style=for-the-badge&logo=Jenkins) ![Grafana](https://img.shields.io/badge/Grafana-gray?style=for-the-badge&logo=grafana&logoColor=orange)
+### Backend
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white) ![Django](https://img.shields.io/badge/Django-0C4B33?style=for-the-badge&logo=django&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-EDEDED?style=for-the-badge&logo=flask&logoColor=black)
 
+### AI/ML
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white) ![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFCC4D?style=for-the-badge&logo=huggingface&logoColor=black)
+
+### LLM
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=chainlink&logoColor=white) ![Langflow](https://img.shields.io/badge/Langflow-2E6EEB?style=for-the-badge&logo=langchain&logoColor=white) ![Dify](https://img.shields.io/badge/Dify-1C64F2?style=for-the-badge&logo=googlecloud&logoColor=white) ![Groq](https://img.shields.io/badge/Groq-000000?style=for-the-badge&logo=groq&logoColor=white) ![Ollama](https://img.shields.io/badge/Ollama-111111?style=for-the-badge&logo=ollama&logoColor=white)
+
+### DevOps
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white) ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white) ![Azure DevOps](https://img.shields.io/badge/Azure%20DevOps-0078D7?style=for-the-badge&logo=azuredevops&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+
+### Cloud
+![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+
+## :bar_chart: GitHub Stats
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=SHRHarry&theme=dark&hide_border=false&count_private=true&layout=compact)
