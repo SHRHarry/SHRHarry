@@ -3,7 +3,7 @@
 ## :shipit: About Me
 
 :office: Currently working as a software engineer, supporting Microsoft Translation services.  
-:mortar_board: M.S. in Computer Science from [National Central University (NCU)](https://www.ncu.edu.tw/tw/index.html), Taiwan.  
+:mortar_board: M.S. in Electrical Engineering from [National Central University (NCU)](https://www.ncu.edu.tw/tw/index.html), Taiwan.  
 
 ## :computer: Skills
 ### Frontend
