@@ -26,6 +26,7 @@
 
 ## :bar_chart: GitHub Dashboard
 ![Profile Metrics](https://raw.githubusercontent.com/SHRHarry/SHRHarry/main/.github/metrics/overview.svg)
+![Languages Metrics](https://raw.githubusercontent.com/SHRHarry/SHRHarry/main/.github/metrics/languages.svg)
 
 ## :snake: Contribution Snake
 ![Contribution Snake](https://raw.githubusercontent.com/SHRHarry/SHRHarry/output/github-contribution-grid-snake-dark.svg)
