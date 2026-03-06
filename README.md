@@ -28,5 +28,8 @@
 ![Profile Metrics](https://raw.githubusercontent.com/SHRHarry/SHRHarry/main/.github/metrics/overview.svg?v=20260307)
 ![Languages Metrics](https://raw.githubusercontent.com/SHRHarry/SHRHarry/main/.github/metrics/languages.svg?v=20260307)
 
+## :chart_with_upwards_trend: Activity Graph
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=SHRHarry&theme=github-compact&hide_border=true)
+
 ## :snake: Contribution Snake
 ![Contribution Snake](https://raw.githubusercontent.com/SHRHarry/SHRHarry/output/github-contribution-grid-snake-dark.svg)
