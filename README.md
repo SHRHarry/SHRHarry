@@ -24,8 +24,11 @@
 ### Cloud
 ![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
 
-## :bar_chart: GitHub Dashboard
-![Profile Metrics](https://raw.githubusercontent.com/SHRHarry/SHRHarry/main/.github/metrics/overview.svg?v=20260308b)
+## :bar_chart: Dev Pulse
+![Profile Metrics](https://raw.githubusercontent.com/SHRHarry/SHRHarry/main/.github/metrics/overview.svg?v=20260308c)
 
-## :snake: Contribution Snake
+## :lock: Work Stats
+![Private Activity](https://raw.githubusercontent.com/SHRHarry/SHRHarry/main/.github/metrics/private-activity.svg?v=20260308a)
+
+## :snake: Contributions
 ![Contribution Snake](https://raw.githubusercontent.com/SHRHarry/SHRHarry/output/github-contribution-grid-snake-dark.svg)

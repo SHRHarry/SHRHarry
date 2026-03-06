@@ -1,0 +1,92 @@
+name: Generate Private Activity Card
+
+on:
+  schedule:
+    - cron: "15 */12 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build private-aware activity svg
+        uses: actions/github-script@v7
+        env:
+          USERNAME: SHRHarry
+        with:
+          github-token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require("fs");
+
+            const username = process.env.USERNAME;
+            const query = `
+              query($login: String!) {
+                user(login: $login) {
+                  contributionsCollection {
+                    contributionCalendar {
+                      totalContributions
+                    }
+                    restrictedContributionsCount
+                    totalCommitContributions
+                    totalIssueContributions
+                    totalPullRequestContributions
+                    totalPullRequestReviewContributions
+                  }
+                }
+              }
+            `;
+
+            const result = await github.graphql(query, { login: username });
+            const c = result.user.contributionsCollection;
+
+            const rows = [
+              ["Total Contributions (1y)", c.contributionCalendar.totalContributions],
+              ["Private/Restricted", c.restrictedContributionsCount],
+              ["Commits", c.totalCommitContributions],
+              ["Pull Requests", c.totalPullRequestContributions],
+              ["PR Reviews", c.totalPullRequestReviewContributions],
+              ["Issues", c.totalIssueContributions]
+            ];
+
+            const y0 = 72;
+            const rowH = 34;
+            const height = y0 + rows.length * rowH + 26;
+            const rowSvg = rows.map((row, i) => {
+              const y = y0 + i * rowH;
+              return `
+                <text x="36" y="${y}" fill="#9ca3af" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">${row[0]}</text>
+                <text x="560" y="${y}" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" text-anchor="end">${row[1]}</text>
+              `;
+            }).join("");
+
+            const now = new Date().toISOString().replace("T", " ").replace("Z", " UTC");
+            const svg = `<?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" width="600" height="${height}" viewBox="0 0 600 ${height}" role="img" aria-label="Private-aware GitHub activity">
+              <rect width="100%" height="100%" rx="14" fill="#0d1117"/>
+              <rect x="16" y="16" width="568" height="${height - 32}" rx="10" fill="#111827" stroke="#374151"/>
+              <text x="36" y="46" fill="#f9fafb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700">Private-aware Activity (Last 12 Months)</text>
+              ${rowSvg}
+              <text x="36" y="${height - 16}" fill="#6b7280" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">Updated: ${now}</text>
+            </svg>`;
+
+            fs.mkdirSync(".github/metrics", { recursive: true });
+            fs.writeFileSync(".github/metrics/private-activity.svg", svg);
+
+      - name: Commit updated card
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/metrics/private-activity.svg
+          git diff --cached --quiet || git commit -m "Update private activity card [skip ci]"
+          git push
