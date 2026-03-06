@@ -21,7 +21,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           user: SHRHarry
           filename: .github/metrics/overview.svg
-          template: classic
+          template: terminal
           base: header, activity
           config_timezone: Asia/Taipei
 
@@ -31,7 +31,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           user: SHRHarry
           filename: .github/metrics/languages.svg
-          template: classic
+          template: terminal
           base: ""
           config_timezone: Asia/Taipei
           plugin_languages: yes
