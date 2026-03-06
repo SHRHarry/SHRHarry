@@ -25,7 +25,7 @@
 ![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
 
 ## :bar_chart: GitHub Dashboard
-![Profile Metrics](https://raw.githubusercontent.com/SHRHarry/SHRHarry/main/.github/metrics/overview.svg?v=20260308a)
+![Profile Metrics](https://raw.githubusercontent.com/SHRHarry/SHRHarry/main/.github/metrics/overview.svg?v=20260308b)
 
 ## :snake: Contribution Snake
 ![Contribution Snake](https://raw.githubusercontent.com/SHRHarry/SHRHarry/output/github-contribution-grid-snake-dark.svg)
