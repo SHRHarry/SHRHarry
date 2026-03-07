@@ -38,7 +38,6 @@ jobs:
                     after: $after
                     ownerAffiliations: OWNER
                     orderBy: {field: PUSHED_AT, direction: DESC}
-                    privacy: ALL
                   ) {
                     pageInfo { hasNextPage endCursor }
                     nodes {
