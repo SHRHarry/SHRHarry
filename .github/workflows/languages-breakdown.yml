@@ -120,5 +120,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .github/metrics/languages-full.json .github/metrics/languages-full.md
-          git diff --cached --quiet || git commit -m "Update full languages breakdown [skip ci]"
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "Update full languages breakdown [skip ci]"
+
+          # Handle non-fast-forward when other workflows update main concurrently.
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            if [ "$i" -eq 3 ]; then
+              echo "Push failed after 3 attempts"
+              exit 1
+            fi
+            sleep 3
+          done
