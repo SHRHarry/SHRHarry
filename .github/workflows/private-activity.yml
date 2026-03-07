@@ -28,15 +28,12 @@ jobs:
           github-token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
             const fs = require("fs");
-
             const username = process.env.USERNAME;
-            const query = `
+            const activityQuery = `
               query($login: String!) {
                 user(login: $login) {
                   contributionsCollection {
-                    contributionCalendar {
-                      totalContributions
-                    }
+                    contributionCalendar { totalContributions }
                     restrictedContributionsCount
                     totalCommitContributions
                     totalIssueContributions
@@ -47,10 +44,34 @@ jobs:
               }
             `;
 
-            const result = await github.graphql(query, { login: username });
-            const c = result.user.contributionsCollection;
+            const languagesQuery = `
+              query($login: String!, $after: String) {
+                user(login: $login) {
+                  repositories(
+                    first: 100
+                    after: $after
+                    ownerAffiliations: OWNER
+                    orderBy: {field: PUSHED_AT, direction: DESC}
+                  ) {
+                    pageInfo { hasNextPage endCursor }
+                    nodes {
+                      isFork
+                      isArchived
+                      languages(first: 20, orderBy: {field: SIZE, direction: DESC}) {
+                        edges {
+                          size
+                          node { name color }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `;
 
-            const rows = [
+            const activityResult = await github.graphql(activityQuery, { login: username });
+            const c = activityResult.user.contributionsCollection;
+            const activityRows = [
               ["Total Contributions (1y)", c.contributionCalendar.totalContributions],
               ["Private/Restricted", c.restrictedContributionsCount],
               ["Commits", c.totalCommitContributions],
@@ -59,25 +80,71 @@ jobs:
               ["Issues", c.totalIssueContributions]
             ];
 
-            const y0 = 72;
-            const rowH = 34;
-            const height = y0 + rows.length * rowH + 26;
-            const rowSvg = rows.map((row, i) => {
-              const y = y0 + i * rowH;
+            const totals = new Map();
+            let after = null;
+            while (true) {
+              const data = await github.graphql(languagesQuery, { login: username, after });
+              const repos = data.user.repositories.nodes || [];
+              for (const repo of repos) {
+                if (repo.isFork || repo.isArchived) continue;
+                for (const edge of repo.languages.edges || []) {
+                  const name = edge.node.name;
+                  const size = edge.size || 0;
+                  const color = edge.node.color || "#60a5fa";
+                  const current = totals.get(name) || { size: 0, color };
+                  current.size += size;
+                  if (!current.color && color) current.color = color;
+                  totals.set(name, current);
+                }
+              }
+              const pageInfo = data.user.repositories.pageInfo;
+              if (!pageInfo.hasNextPage) break;
+              after = pageInfo.endCursor;
+            }
+
+            const languages = [...totals.entries()]
+              .map(([name, v]) => ({ name, size: v.size, color: v.color }))
+              .sort((a, b) => b.size - a.size);
+            const totalSize = languages.reduce((sum, l) => sum + l.size, 0);
+            const topLanguages = languages.slice(0, 6).map((l) => ({
+              ...l,
+              percentage: totalSize > 0 ? Number(((l.size / totalSize) * 100).toFixed(2)) : 0
+            }));
+
+            const activityY = 80;
+            const activityRowH = 30;
+            const activitySvg = activityRows.map((row, i) => {
+              const y = activityY + i * activityRowH;
               return `
-                <text x="36" y="${y}" fill="#9ca3af" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">${row[0]}</text>
-                <text x="560" y="${y}" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" text-anchor="end">${row[1]}</text>
+                <text x="36" y="${y}" fill="#9ca3af" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">${row[0]}</text>
+                <text x="560" y="${y}" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" text-anchor="end">${row[1]}</text>
               `;
             }).join("");
 
+            const langStartY = activityY + activityRows.length * activityRowH + 28;
+            const langRowH = 28;
+            const langSvg = topLanguages.map((l, i) => {
+              const y = langStartY + 26 + i * langRowH;
+              const barW = Math.max(4, Math.round((l.percentage / 100) * 220));
+              return `
+                <text x="36" y="${y}" fill="#d1d5db" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">${l.name}</text>
+                <rect x="230" y="${y - 12}" width="220" height="10" rx="4" fill="#1f2937"/>
+                <rect x="230" y="${y - 12}" width="${barW}" height="10" rx="4" fill="${l.color || "#60a5fa"}"/>
+                <text x="560" y="${y}" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" text-anchor="end">${l.percentage}%</text>
+              `;
+            }).join("");
+
+            const height = langStartY + 26 + topLanguages.length * langRowH + 30;
             const now = new Date().toISOString().replace("T", " ").replace("Z", " UTC");
             const svg = `<?xml version="1.0" encoding="UTF-8"?>
-            <svg xmlns="http://www.w3.org/2000/svg" width="600" height="${height}" viewBox="0 0 600 ${height}" role="img" aria-label="Private-aware GitHub activity">
+            <svg xmlns="http://www.w3.org/2000/svg" width="600" height="${height}" viewBox="0 0 600 ${height}" role="img" aria-label="Private-aware GitHub activity and language breakdown">
               <rect width="100%" height="100%" rx="14" fill="#0d1117"/>
               <rect x="16" y="16" width="568" height="${height - 32}" rx="10" fill="#111827" stroke="#374151"/>
               <text x="36" y="46" fill="#f9fafb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700">Private-aware Activity (Last 12 Months)</text>
-              ${rowSvg}
-              <text x="36" y="${height - 16}" fill="#6b7280" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">Updated: ${now}</text>
+              ${activitySvg}
+              <text x="36" y="${langStartY}" fill="#f9fafb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700">Languages Breakdown (${languages.length})</text>
+              ${langSvg}
+              <text x="36" y="${height - 14}" fill="#6b7280" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">Updated: ${now}</text>
             </svg>`;
 
             fs.mkdirSync(".github/metrics", { recursive: true });
@@ -88,5 +155,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .github/metrics/private-activity.svg
-          git diff --cached --quiet || git commit -m "Update private activity card [skip ci]"
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "Update private activity card [skip ci]"
+
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            if [ "$i" -eq 3 ]; then
+              echo "Push failed after 3 attempts"
+              exit 1
+            fi
+            sleep 3
+          done
