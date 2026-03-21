@@ -1,49 +1,49 @@
 {
-  "generated_at": "2026-03-20T13:38:58.240Z",
+  "generated_at": "2026-03-21T03:06:30.286Z",
   "total_languages": 14,
-  "total_bytes": 6562174,
+  "total_bytes": 6566284,
   "languages": [
     {
       "name": "Jupyter Notebook",
       "size": 4532994,
       "color": "#DA5B0B",
-      "percentage": 69.0776
+      "percentage": 69.0344
     },
     {
       "name": "Python",
-      "size": 1572557,
+      "size": 1576667,
       "color": "#3572A5",
-      "percentage": 23.964
+      "percentage": 24.0116
     },
     {
       "name": "C#",
       "size": 140231,
       "color": "#178600",
-      "percentage": 2.137
+      "percentage": 2.1356
     },
     {
       "name": "C++",
       "size": 130363,
       "color": "#f34b7d",
-      "percentage": 1.9866
+      "percentage": 1.9853
     },
     {
       "name": "JavaScript",
       "size": 120701,
       "color": "#f1e05a",
-      "percentage": 1.8393
+      "percentage": 1.8382
     },
     {
       "name": "HTML",
       "size": 27715,
       "color": "#e34c26",
-      "percentage": 0.4223
+      "percentage": 0.4221
     },
     {
       "name": "Cython",
       "size": 15879,
       "color": "#fedf5b",
-      "percentage": 0.242
+      "percentage": 0.2418
     },
     {
       "name": "Batchfile",
@@ -55,7 +55,7 @@
       "name": "CMake",
       "size": 8237,
       "color": "#DA3434",
-      "percentage": 0.1255
+      "percentage": 0.1254
     },
     {
       "name": "Shell",
@@ -73,7 +73,7 @@
       "name": "C",
       "size": 1073,
       "color": "#555555",
-      "percentage": 0.0164
+      "percentage": 0.0163
     },
     {
       "name": "Dockerfile",
