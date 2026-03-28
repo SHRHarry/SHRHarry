@@ -1,67 +1,73 @@
 {
-  "generated_at": "2026-03-28T03:21:09.669Z",
-  "total_languages": 14,
-  "total_bytes": 6568336,
+  "generated_at": "2026-03-28T13:31:18.472Z",
+  "total_languages": 15,
+  "total_bytes": 6575379,
   "languages": [
     {
       "name": "Jupyter Notebook",
       "size": 4532994,
       "color": "#DA5B0B",
-      "percentage": 69.0128
+      "percentage": 68.9389
     },
     {
       "name": "Python",
-      "size": 1578719,
+      "size": 1578860,
       "color": "#3572A5",
-      "percentage": 24.0353
+      "percentage": 24.0117
     },
     {
       "name": "C#",
       "size": 140231,
       "color": "#178600",
-      "percentage": 2.135
+      "percentage": 2.1327
     },
     {
       "name": "C++",
       "size": 130363,
       "color": "#f34b7d",
-      "percentage": 1.9847
+      "percentage": 1.9826
     },
     {
       "name": "JavaScript",
       "size": 120701,
       "color": "#f1e05a",
-      "percentage": 1.8376
+      "percentage": 1.8357
     },
     {
       "name": "HTML",
       "size": 27715,
       "color": "#e34c26",
-      "percentage": 0.4219
+      "percentage": 0.4215
     },
     {
       "name": "Cython",
       "size": 15879,
       "color": "#fedf5b",
-      "percentage": 0.2418
+      "percentage": 0.2415
     },
     {
       "name": "Batchfile",
       "size": 8580,
       "color": "#C1F12E",
-      "percentage": 0.1306
+      "percentage": 0.1305
     },
     {
       "name": "CMake",
       "size": 8237,
       "color": "#DA3434",
-      "percentage": 0.1254
+      "percentage": 0.1253
+    },
+    {
+      "name": "PowerShell",
+      "size": 6902,
+      "color": "#012456",
+      "percentage": 0.105
     },
     {
       "name": "Shell",
       "size": 1495,
       "color": "#89e051",
-      "percentage": 0.0228
+      "percentage": 0.0227
     },
     {
       "name": "Euphoria",
@@ -79,7 +85,7 @@
       "name": "Dockerfile",
       "size": 805,
       "color": "#384d54",
-      "percentage": 0.0123
+      "percentage": 0.0122
     },
     {
       "name": "CSS",
