@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T13:32:27.600Z",
+  "generated_at": "2026-08-27T10:06:10.061Z",
   "total_languages": 15,
   "total_bytes": 6586816,
   "languages": [
@@ -18,7 +18,7 @@
     {
       "name": "C#",
       "size": 144624,
-      "color": "#178600",
+      "color": "#7355dd",
       "percentage": 2.1957
     },
     {
