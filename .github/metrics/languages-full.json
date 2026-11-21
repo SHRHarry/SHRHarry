@@ -1,55 +1,61 @@
 {
-  "generated_at": "2026-11-21T07:32:30.664Z",
+  "generated_at": "2026-11-21T19:37:27.896Z",
   "total_languages": 15,
-  "total_bytes": 6587048,
+  "total_bytes": 6589369,
   "languages": [
     {
       "name": "Jupyter Notebook",
       "size": 4532994,
       "color": "#DA5B0B",
-      "percentage": 68.8168
+      "percentage": 68.7925
     },
     {
       "name": "Python",
-      "size": 1585052,
+      "size": 1587331,
       "color": "#3572A5",
-      "percentage": 24.0632
+      "percentage": 24.0893
     },
     {
       "name": "C#",
       "size": 144624,
       "color": "#7355dd",
-      "percentage": 2.1956
+      "percentage": 2.1948
     },
     {
       "name": "C++",
       "size": 130363,
       "color": "#f34b7d",
-      "percentage": 1.9791
+      "percentage": 1.9784
     },
     {
       "name": "JavaScript",
-      "size": 120701,
+      "size": 101004,
       "color": "#f1e05a",
-      "percentage": 1.8324
+      "percentage": 1.5328
     },
     {
       "name": "HTML",
       "size": 27715,
       "color": "#e34c26",
-      "percentage": 0.4207
+      "percentage": 0.4206
+    },
+    {
+      "name": "CSS",
+      "size": 20093,
+      "color": "#663399",
+      "percentage": 0.3049
     },
     {
       "name": "Cython",
       "size": 15879,
       "color": "#fedf5b",
-      "percentage": 0.2411
+      "percentage": 0.241
     },
     {
       "name": "Batchfile",
       "size": 8580,
       "color": "#C1F12E",
-      "percentage": 0.1303
+      "percentage": 0.1302
     },
     {
       "name": "CMake",
@@ -86,12 +92,6 @@
       "size": 805,
       "color": "#384d54",
       "percentage": 0.0122
-    },
-    {
-      "name": "CSS",
-      "size": 354,
-      "color": "#663399",
-      "percentage": 0.0054
     }
   ]
 }
